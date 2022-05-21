@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken');
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const res = require("express/lib/response");
 require("dotenv").config();
+
 const port = process.env.PORT || 5000;
+
 const app = express();
 
 //middleware
@@ -150,7 +152,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-  res.send("inventory server running");
+  res.send("inventory management server running");
 });
 
 app.listen(port, () => {
