@@ -25,7 +25,7 @@ function verifyJWT(req,res, next){
     req.decoded = decoded;
     next();
   });
-     console.log('inside verifyJWT', authHeader);
+     //console.log('inside verifyJWT', authHeader);
 }
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.wd1z6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
