@@ -113,7 +113,7 @@ async function run() {
 
     app.delete("/myItem:id", async(req, res)=>{
       const id = req.params.id;
-      console.log(id);
+      console.log("your deleted id: ",id);
       const query = {_id: ObjectId(id)};
       const result = await myItemsCollection.deleteOne(query);
       res.send(result);
@@ -124,6 +124,7 @@ async function run() {
    app.get('/myItems', verifyJWT, async(req,res) =>{
      const decodedEmail = req.decoded.email;
      const email = req.query.email;
+     
      console.log("check email: "+email + "  -  " + decodedEmail);
      if(email === decodedEmail){
        const query = {};
