@@ -41,12 +41,8 @@ console.log("inventory management connected");
 async function run() {
   try {
     await client.connect();
-    const inventoryCollection = client
-      .db("inventoryManagement")
-      .collection("inventory");
-    const myItemsCollection = client
-      .db("inventoryManagement")
-      .collection("myItems");
+    const inventoryCollection = client.db("inventoryManagement").collection("inventory");
+    const myItemsCollection = client.db("inventoryManagement").collection("myItems");
 
     //update product quantity
           
@@ -78,7 +74,7 @@ async function run() {
         expiresIn: '1d'
       });
       res.send({accessToken})
-    })
+    });
 
     //Inventories API
     app.get("/inventory", async (req, res) => {
@@ -154,7 +150,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-  res.send("inventory management server running");
+  res.send("inventory management server side running");
 });
 
 app.listen(port, () => {
